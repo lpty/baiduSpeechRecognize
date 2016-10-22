@@ -25,7 +25,6 @@ def recognize(wav_file):
     params = f.getparams()
     nchannels, sampwidth, framerate, nframes = params[:4]
     if sampwidth != 1 or framerate not in (8000, 16000):        #原始音频参数必须符合 8k/16k 采样率、16bit 位深、单声道
-        print(u'不符合格式')
         return
     str_data = f.readframes(nframes)
     base_data = base64.b64encode(str_data).decode('utf-8')      #base64编码
